@@ -52,13 +52,13 @@ func char_count(str string) map[rune]int {
 }
 
 func translator(result map[rune]int) string {
-	var true_answer string
+	var answer strings.Builder
 	for char, count := range result {
-		answer := fmt.Sprintf("Буква '%c' встретилась: %d раз(а)\n", char, count)
-		true_answer += answer
+		answer.WriteString(fmt.Sprintf("Буква %c встретилась: %d раз(а)\n", char, count))
 	}
-	return true_answer
+	return answer.String()
 }
+
 func booldublicate(num []int) bool {
 	watch := make(map[int]bool)
 

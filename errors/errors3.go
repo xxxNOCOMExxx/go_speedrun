@@ -28,13 +28,10 @@ func main() {
 }
 
 func checkPassword(users map[string]string, login string, pass string) error {
-	// 1. Достаем пароль по логину без всяких циклов
 	realPass, ok := users[login]
 	if !ok {
 		return errors.New("пользователь не найден")
 	}
-
-	// 2. Сравниваем пароль из мапы с тем, что ввел юзер
 	if realPass != pass {
 		return errors.New("неверный пароль")
 	}
@@ -43,7 +40,6 @@ func checkPassword(users map[string]string, login string, pass string) error {
 }
 
 func loginAdmin(users map[string]string, login string, pass string) error {
-	// 3. Вызываем нижнюю функцию. Если вернулась ошибка — оборачиваем её
 	err := checkPassword(users, login, pass)
 	if err != nil {
 		return fmt.Errorf("доступ запрещен: %w", err)
