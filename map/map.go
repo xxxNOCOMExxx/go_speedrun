@@ -80,14 +80,12 @@ func count_voice(names []string) map[string]int {
 }
 
 func view_true_inst(inst map[string]bool, true_in []string) bool {
-	attend := true
 	for _, here := range true_in {
 		if _, ok := inst[here]; !ok {
-			attend = false
-			break
+			return false
 		}
 	}
-	return attend
+	return true
 }
 
 func unique_num(slice []int) int {
